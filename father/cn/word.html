@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5学堂 - H5course</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style type="text/css">
+		.start {
+			text-align: center;
+			font-size: 48px;
+			color: #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="start"></div>
+	<script src="../js/jquery-1.11.2.js"></script>
+	<script type="text/javascript">
+		//全屏显示
+		var movWidth = $(window).width();
+		var movHeight = $(window).height();
+		$('.start').css({
+			'width' : movWidth,
+			'height' : movHeight,
+			'line-height' : movHeight
+		})
+		//文字效果
+		var wordCon = [];
+		wordCon.push("今天..我有些话想对您说..");
+		wordCon.push("您为我们操劳了这么多年，今天，我想让您知道..");
+		wordCon.push("我是多么的爱你，我的父亲！");
+		var num = 0;
+		var timer = setInterval(function () {
+			if (num > wordCon.length - 1) {
+				clearInterval(timer);
+			} else {
+				wordSee(wordCon[num]);
+				num ++;			
+			}
+		}, 4000);
+		function wordSee(wordCon) {
+			$('.start').text(wordCon);
+			$('.start').fadeIn(2000);
+			$('.start').fadeOut(2000);	
+		}
+	</script>
+</body>
+</html>
